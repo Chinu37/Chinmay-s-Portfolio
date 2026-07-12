@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinmay Kale — Motion / Graphic / Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
+
+<style>
+  :root{
+    --bg:#0A0A0C;
+    --bg-soft:#111114;
+    --text:#F3F2EF;
+    --text-muted:#8A8A93;
+    --line:rgba(243,242,239,0.12);
+    --glass:rgba(10, 10, 12, 0.45);
+    --glass-border:rgba(255,255,255,0.08);
+    --grad: linear-gradient(120deg,#FF2E9A 0%,#7B2FF7 55%,#FFA53D 100%);
+    --pink:#FF2E9A;
+    --violet:#7B2FF7;
+    --amber:#FFA53D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
+    padding-bottom: 120px;
+  }
+
+  dotlottie-wc{
+    background:transparent;
+  }
+
+  /* ---------- CSS PREMIUM TEXT REVEAL STYLE ---------- */
+  .reveal-text {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: revealUp 0.85s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  @keyframes revealUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------- GLOBAL CORNER FLOATING LOTTIE CONFIGS ---------- */
+  .motion-corner-lottie,
+  .graphics-corner-lottie,
+  .about-corner-lottie {
+    position: absolute;
+    right: 4%;
+    width: 260px;
+    height: 260px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  
+  .motion-corner-lottie dotlottie-wc,
+  .graphics-corner-lottie dotlottie-wc,
+  .about-corner-lottie dotlottie-wc {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Specific Anchor Placements & Speeds */
+  .motion-corner-lottie {
+    top: -20px;
+    animation: cornerFloatMotion 7s ease-in-out infinite;
+  }
+  .graphics-corner-lottie {
+    top: -10px;
+    animation: cornerFloatGraphics 8s ease-in-out infinite;
+  }
+  .about-corner-lottie {
+    top: -20px;
+    animation: cornerFloatAbout 6.5s ease-in-out infinite;
+  }
+
+  /* Individualized Floating Physic Profiles */
+  @keyframes cornerFloatMotion {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+  }
+  @keyframes cornerFloatGraphics {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-3deg); }
+  }
+  @keyframes cornerFloatAbout {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-10px) scale(1.04); }
+  }
+
+  /* ---------- FIXED NAV BAR WITH PREMIUM SPACING & KERNING ---------- */
+  nav {
+    position: fixed;
+    top: 24px; 
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; 
+    z-index: 100;
+  }
+  .nav-inner {
+    width: min(760px, 92%); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 12px 28px;
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6);
+    pointer-events: auto; 
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .logo span {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.08em; 
+    text-transform: uppercase; 
+    transition: color 0.25s ease, transform 0.25s ease;
+    display: inline-block;
+  }
+  .nav-links a:hover { 
+    color: var(--text);
+    transform: translateY(-0.5px);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 6vw;
+    isolation:isolate;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    color:var(--text-muted);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:28px;height:1px;
+    background:var(--text-muted);
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(3.2rem, 9vw, 8.2rem);
+    line-height:0.94;
+    letter-spacing:-0.02em;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:600;
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero-sub{
+    max-width:520px;
+    margin-top:26px;
+    font-size:1.05rem;
+    line-height:1.55;
+    color:var(--text-muted);
+  }
+  .hero-cta{
+    margin-top:38px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    width:fit-content;
+    padding:15px 28px;
+    background:var(--text);
+    color:var(--bg);
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.92rem;
+    text-decoration:none;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hero-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px -8px rgba(255,46,154,0.4);
+  }
+  .hero-cta svg{ width:16px; height:16px; }
+
+  /* ---------- FLOATING VECTOR ELEMENTS ---------- */
+  .floaters{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+  }
+  .floater{
+    position:absolute;
+  }
+  .f1{ top:12%; right:14%; width:180px; animation: drift1 9s ease-in-out infinite; }
+  .f2{ top:60%; right:22%; width:90px; animation: drift2 7s ease-in-out infinite; }
+  .f3{ top:24%; right:4%; width:60px; animation: drift3 6.5s ease-in-out infinite; }
+  .f4{ top:74%; right:6%; width:130px; animation: drift1 10.5s ease-in-out infinite reverse; }
+
+  @keyframes drift1{
+    0%,100%{ transform:translate(0,0) rotate(0deg); }
+    50%{ transform:translate(-18px,-26px) rotate(8deg); }
+  }
+  @keyframes drift2{
+    0%,100%{ transform:translate(0,0) rotate(0deg); }
+    50%{ transform:translate(14px,18px) rotate(-10deg); }
+  }
+  @keyframes drift3{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(-10px,14px) scale(1.08); }
+  }
+
+  .hero-character-fallback{
+    position:absolute;
+    top:8%; right:2%;
+    width:min(38vw, 420px); height:min(38vw, 420px);
+    border-radius:50%;
+    background:var(--grad);
+    opacity:0.15; filter:blur(30px);
+    animation: heroFloat 6s ease-in-out infinite;
+  }
+  .hero-character{
+    position:absolute;
+    top:8%; right:2%;
+    width:min(38vw, 420px); height:min(38vw, 420px);
+    animation: heroFloat 6s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes heroFloat{
+    0%,100%{ transform:translateY(0px); }
+    50%{ transform:translateY(-16px); }
+  }
+  @media (max-width:900px){
+    .hero-character, .hero-character-fallback{
+      position:relative; width:70vw; height:70vw; margin:0 auto 20px; top:0; right:0;
+    }
+  }
+
+  /* ---------- SCROLL SCRUBBER ---------- */
+  .scrubber-wrap{
+    position:fixed;
+    bottom:26px; left:50%;
+    transform:translateX(-50%);
+    width:min(1180px, 92%);
+    z-index:100;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:10px 18px;
+    background:rgba(20,20,24,0.55);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid var(--glass-border);
+    border-radius:100px;
+  }
+  .scrub-code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    color:var(--text-muted);
+    min-width:56px;
+  }
+  .scrub-track{
+    flex:1; height:3px;
+    background:rgba(255,255,255,0.12);
+    border-radius:2px; position:relative;
+  }
+  .scrub-fill{
+    position:absolute; top:0; left:0; height:100%; width:0%;
+    background:var(--grad); border-radius:2px;
+  }
+  .scrub-head{
+    position:absolute; top:50%; left:0%; width:11px; height:11px;
+    background:var(--text); border-radius:50%; transform:translate(-50%,-50%);
+    box-shadow:0 0 0 4px rgba(255,255,255,0.08);
+  }
+  .scrub-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    color:var(--text-muted);
+  }
+
+  /* ---------- WORK SECTION ---------- */
+  .work{
+    padding:100px 6vw;
+    border-top:1px solid var(--line);
+    position:relative;
+  }
+  .work-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .work-title{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:clamp(2.2rem, 5vw, 4rem);
+    letter-spacing:-0.01em;
+  }
+  .work-count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.8rem;
+    color:var(--text-muted);
+  }
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  @media (max-width:1000px){ .work-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:640px){ .work-grid{ grid-template-columns:1fr; } }
+
+  .project-tile{
+    cursor:pointer;
+  }
+  .project-media{
+    position:relative;
+    aspect-ratio:4/3;
+    border-radius:16px;
+    overflow:hidden;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    transition: transform 0.4s ease;
+  }
+  .project-tile:hover .project-media{
+    transform:scale(1.015);
+  }
+  .project-preview{
+    position:absolute;
+    inset:0; width:100%; height:100%;
+    object-fit:cover;
+  }
+  .project-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-top:14px;
+  }
+  .project-name{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .project-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    color:var(--text-muted);
+  }
+
+  /* ---------- GRAPHIC DESIGN CAROUSEL SECTION ---------- */
+  .graphic-section {
+    padding:100px 0;
+    border-top:1px solid var(--line);
+    background:#0d0d11;
+    overflow:hidden;
+    position: relative;
+  }
+
+  .graphic-ambient-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('IMG-20221215-WA0017.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    filter: blur(8px);
+    transition: background-image 0.8s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+  }
+
+  .slider-container {
+    display:flex;
+    gap:5vw;
+    padding:0 6vw;
+    align-items:center;
+    position:relative;
+    min-height:550px;
+    z-index: 2;
+  }
+  .slider-details {
+    flex:0 0 320px;
+    max-width:320px;
+    z-index:10;
+  }
+  .g-tag {
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    color:var(--pink);
+    letter-spacing:0.1em;
+    display:block;
+    margin-bottom:12px;
+  }
+  .g-title {
+    font-family:'Fraunces',serif;
+    font-size:clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight:900;
+    line-height:1.1;
+    margin-bottom:16px;
+    color:#ffffff;
+  }
+  .g-desc {
+    font-size:0.95rem;
+    color:var(--text-muted);
+    line-height:1.6;
+  }
+  .slider-track {
+    display:flex;
+    gap:24px;
+    flex:1;
+    align-items:center;
+    transition:transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    padding-left:20px;
+  }
+  .slide-card {
+    flex:0 0 240px;
+    height:360px;
+    border-radius:20px;
+    background:var(--bg-thumb, #222) center/cover no-repeat;
+    border:1px solid rgba(255, 255, 255, 0.1);
+    cursor:pointer;
+    transition:transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), flex-basis 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+    filter:grayscale(50%) brightness(50%);
+  }
+  .slide-card:hover {
+    filter:grayscale(0%) brightness(80%);
+  }
+  .slide-card.active {
+    flex:0 0 380px;
+    height:440px;
+    filter:grayscale(0%) brightness(100%);
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+    border:1px solid rgba(255, 255, 255, 0.2);
+  }
+  @media(max-width:900px) {
+    .slider-container { flex-direction:column; align-items:flex-start; min-height:auto; }
+    .slider-details { flex:none; max-width:100%; margin-bottom:40px; }
+    .slider-track { padding-left:0; width:100%; }
+  }
+
+  /* ---------- ABOUT SECTION ---------- */
+  .about-section {
+    padding: 120px 6vw;
+    border-top: 1px solid var(--line);
+    position: relative;
+    background: var(--bg);
+  }
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+    margin-top: 40px;
+  }
+  .about-bio h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .about-bio h3 em {
+    font-style: italic;
+    font-weight: 400;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .about-bio p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .toolkit-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .tools-category h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .tool-badge {
+    padding: 8px 18px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: default;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.25s ease;
+  }
+  .tool-badge:hover {
+    transform: scale(1.05) translateY(-2px);
+    border-color: rgba(255, 46, 154, 0.4);
+  }
+  @media(max-width: 900px) {
+    .about-layout { grid-template-columns: 1fr; gap: 50px; }
+  }
+
+  /* ---------- CONTACT SECTION ---------- */
+  .contact-section {
+    padding: 120px 6vw;
+    border-top: 1px solid var(--line);
+    background: #09090b;
+  }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6vw;
+    margin-top: 40px;
+    align-items: start;
+  }
+  .contact-pitch h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .contact-pitch p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 500px;
+  }
+  .contact-links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+  }
+  .contact-card:hover {
+    transform: translateX(8px);
+    border-color: var(--pink);
+  }
+  .c-card-left span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .c-card-left h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .contact-card svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .contact-card:hover svg {
+    color: var(--pink);
+    transform: translateX(4px);
+  }
+  @media(max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 50px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Chinmay Kale<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Motion</a></li>
+      <li><a href="#graphics">Graphics</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="floaters" id="floaters">
+    <svg class="floater f1" viewBox="0 0 200 200"><path fill="#FF2E9A" opacity="0.9" d="M100 20 C140 20 180 60 180 100 C180 140 140 180 100 180 C60 180 20 140 20 100 C20 60 60 20 100 20 Z"/></svg>
+    <svg class="floater f2" viewBox="0 0 100 100"><polygon points="50,5 95,90 5,90" fill="#FFA53D"/></svg>
+    <svg class="floater f3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#7B2FF7"/></svg>
+    <svg class="floater f4" viewBox="0 0 200 200"><path fill="url(#g1)" d="M40 100 Q100 20 160 100 Q100 180 40 100 Z"/>
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FF2E9A"/><stop offset="100%" stop-color="#7B2FF7"/>
+      </linearGradient></defs>
+    </svg>
+    <div class="hero-character-fallback"></div>
+    <dotlottie-wc
+      class="hero-character"
+      src="https://lottie.host/1c65cdaf-6dca-4e20-9633-a4b6d77a8b5b/DnE5SBJMQj.lottie"
+      autoplay loop>
+    </dotlottie-wc>
+  </div>
+
+  <div class="eyebrow">Motion — Graphic — Web UI</div>
+  <h1 class="reveal-text">Design that<br><em>moves</em> with you</h1>
+  <p class="hero-sub">I'm Chinmay Kale, a motion designer crafting vector-driven animation and interactive design for brands who don't want to sit still. Open to work — available now.</p>
+  <a href="#contact" class="hero-cta">
+    Get in touch
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<section class="work" id="work">
+  <div class="motion-corner-lottie">
+    <dotlottie-wc src="https://lottie.host/df1608e4-9fc9-490d-b50b-e38a76ec3057/y3pueotFcc.lottie" autoplay loop></dotlottie-wc>
+  </div>
+
+  <div class="work-head">
+    <h2 class="work-title reveal-text">Selected work</h2>
+    <span class="work-count">01 — 03</span>
+  </div>
+
+  <div class="work-grid">
+    <div class="project-tile" style="--tile-a:#E4002B;--tile-b:#8B0000;">
+      <div class="project-media">
+        <video class="project-preview" src="Canon logo animation.mp4" autoplay muted loop playsinline style="opacity: 1; object-fit: cover; width: 100%; height: 100%;"></video>
+      </div>
+      <div class="project-info">
+        <span class="project-name">Canon Logo Reveal</span>
+        <span class="project-tag">Motion Graphics — 2026</span>
+      </div>
+    </div>
+
+    <div class="project-tile" style="--tile-a:#FF6B00;--tile-b:#FF8A00;">
+      <div class="project-media" style="display: flex; align-items: center; justify-content: center;">
+        <dotlottie-wc 
+          src="https://lottie.host/8ca21b3c-96e4-479a-8912-73945a4bb644/mv85A2py7O.lottie" 
+          autoplay loop style="width: 100%; height: 100%;">
+        </dotlottie-wc>
+      </div>
+      <div class="project-info">
+        <span class="project-name">Burger Micro-Interaction</span>
+        <span class="project-tag">Interactive Animation — 2026</span>
+      </div>
+    </div>
+
+    <div class="project-tile" style="--tile-a:#1DB954;--tile-b:#121212;">
+      <div class="project-media" style="display: flex; align-items: center; justify-content: center;">
+        <dotlottie-wc 
+          src="https://lottie.host/260d8636-b2b8-4a1a-aab9-13d26c6b3d9d/x73JtjNwIC.lottie" 
+          autoplay loop style="width: 100%; height: 100%;">
+        </dotlottie-wc>
+      </div>
+      <div class="project-info">
+        <span class="project-name">Spotify Logo Reveal</span>
+        <span class="project-tag">Motion Design — 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="graphic-section" id="graphics">
+  <div class="graphic-ambient-bg" id="ambientBg"></div>
+
+  <div class="graphics-corner-lottie">
+    <dotlottie-wc src="https://lottie.host/2744e959-a4b2-4de8-8b05-b265bcc42aac/2CLmj0qeGN.lottie" autoplay loop></dotlottie-wc>
+  </div>
+
+  <div class="work-head" style="padding: 0 6vw; margin-bottom: 30px; position: relative; z-index: 5;">
+    <h2 class="work-title reveal-text">Graphic Design</h2>
+    <span class="work-count" id="graphic-counter">01 — 05</span>
+  </div>
+
+  <div class="slider-container">
+    <div class="slider-details">
+      <span class="g-tag" id="active-tag">PRODUCT ADVERTISING — 2026</span>
+      <h3 class="g-title" id="active-title">SmartWatch Concept</h3>
+      <p class="g-desc" id="active-desc">A clean, minimalist commercial product design ad featuring elegant soft pink ribbons that visually wrap and flow around the floating hardware showcase.</p>
+      <a href="#contact" class="hero-cta" style="margin-top: 24px; padding: 12px 24px; font-size: 0.85rem;">
+        Discuss Project
+      </a>
+    </div>
+
+    <div class="slider-track" id="sliderTrack">
+      <div class="slide-card active" data-index="1" 
+           data-title="SmartWatch Concept" 
+           data-tag="PRODUCT ADVERTISING — 2026" 
+           data-desc="A clean, minimalist commercial product design ad featuring elegant soft pink ribbons that visually wrap and flow around the floating hardware showcase." 
+           style="--bg-thumb: url('IMG-20221215-WA0017.jpg');">
+      </div>
+
+      <div class="slide-card" data-index="2" 
+           data-title="CR7 Matchday Poster" 
+           data-tag="SPORTS GRAPHICS — 2026" 
+           data-desc="A high-energy, aggressive sports manipulation poster utilizing deep red duotone background typography layering behind Cristiano Ronaldo." 
+           style="--bg-thumb: url('IMG-20230111-WA0016.jpg');">
+      </div>
+
+      <div class="slide-card" data-index="3" 
+           data-title="Astroguy Creative" 
+           data-tag="SCI-FI POSTER ART — 2026" 
+           data-desc="A cinematic sci-fi poster using a bold lettermask layout combined with rich nebula cosmic manipulation textures and a central floating astronaut." 
+           style="--bg-thumb: url('IMG-20230112-WA0008.jpg');">
+      </div>
+
+      <div class="slide-card" data-index="4" 
+           data-title="Blueberry Yogurt Splash" 
+           data-tag="BRAND PACKAGING — 2026" 
+           data-desc="Dynamic commercial product presentation highlighting liquid dynamic simulation elements, fluid milk splashes, and flying blueberry assets." 
+           style="--bg-thumb: url('IMG-20230215-WA0007.jpg');">
+      </div>
+
+      <div class="slide-card" data-index="5" 
+           data-title="CK Blueberry Energy" 
+           data-tag="PRODUCT MANIPULATION — 2026" 
+           data-desc="A premium beverage mockup render highlighting wet condensation drop textures, vibrant purple gradients, and crisp floating ingredients." 
+           style="--bg-thumb: url('IMG-20250809-WA0062.jpg');">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="about-corner-lottie">
+    <dotlottie-wc src="https://lottie.host/873a579f-e4ed-495c-8bea-998f0e0bccf4/LUQeJZQX2X.lottie" autoplay loop></dotlottie-wc>
+  </div>
+
+  <div class="work-head" style="margin-bottom: 30px;">
+    <h2 class="work-title reveal-text">About Me</h2>
+    <span class="work-count">04 — 04</span>
+  </div>
+
+  <div class="about-layout">
+    <div class="about-bio">
+      <h3>Blending <em>logical systems</em> with playful aesthetics.</h3>
+      <p>I am an Information Technology engineering student at Datta Meghe College of Engineering. Navigating the world of IT has given me a deep appreciation for systems and clean architecture, which I deliberately filter into my creative workflow.</p>
+      <p>My core philosophy centers around simple and playful interactions. I love breaking down complex ideas into crisp visual layouts and dynamic motion pieces that make digital assets highly engaging, accessible, and intuitive to navigate.</p>
+    </div>
+
+    <div class="toolkit-grid">
+      <div class="tools-category">
+        <h4>Creative Core</h4>
+        <div class="tools-list">
+          <div class="tool-badge">Adobe After Effects</div>
+          <div class="tool-badge">Adobe Photoshop</div>
+          <div class="tool-badge">Adobe Illustrator</div>
+          <div class="tool-badge">Graphic Design</div>
+        </div>
+      </div>
+
+      <div class="tools-category">
+        <h4>Interactive & Web</h4>
+        <div class="tools-list">
+          <div class="tool-badge">Rive</div>
+          <div class="tool-badge">Lottie Files</div>
+          <div class="tool-badge">Vector Animation</div>
+          <div class="tool-badge">UI/UX Systems</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-layout">
+    <div class="contact-pitch">
+      <h3>Let's start<br>something fresh.</h3>
+      <p>I am actively looking to connect with creative teams, brand developers, and agencies to collaborate on fresh motion graphics and branding opportunities.</p>
+    </div>
+
+    <div class="contact-links-grid">
+      <a href="mailto:kalechinmay998@gmail.com" class="contact-card">
+        <div class="c-card-left">
+          <span>Primary Email</span>
+          <h4>kalechinmay998@gmail.com</h4>
+        </div>
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <a href="https://instagram.com/mock.motions.37" target="_blank" class="contact-card">
+        <div class="c-card-left">
+          <span>Instagram Showcase</span>
+          <h4>@mock.motions.37</h4>
+        </div>
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="scrubber-wrap">
+  <span class="scrub-code" id="scrubCode">00:00</span>
+  <div class="scrub-track">
+    <div class="scrub-fill" id="scrubFill"></div>
+    <div class="scrub-head" id="scrubHead"></div>
+  </div>
+  <span class="scrub-label">HERO.MOV</span>
+</div>
+
+<script>
+  // 1. Hero Parallax Scroll
+  const floatersLayer = document.getElementById('floaters');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if(floatersLayer) floatersLayer.style.transform = `translateY(${y * 0.18}px)`;
+  }, { passive: true });
+
+  // 2. Global Bottom Progress Scrubber
+  const scrubFill = document.getElementById('scrubFill');
+  const scrubHead = document.getElementById('scrubHead');
+  const scrubCode = document.getElementById('scrubCode');
+
+  function updateScrubber(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.min(100, (scrollTop / docHeight) * 100);
+    if(scrubFill) scrubFill.style.width = pct + '%';
+    if(scrubHead) scrubHead.style.left = pct + '%';
+
+    const totalSeconds = Math.floor((pct/100) * 60);
+    const mm = String(Math.floor(totalSeconds/60)).padStart(2,'0');
+    const ss = String(totalSeconds%60).padStart(2,'0');
+    if(scrubCode) scrubCode.textContent = `${mm}:${ss}`;
+  }
+  window.addEventListener('scroll', updateScrubber);
+  updateScrubber();
+
+  // 3. Graphic Design Slider Click Interactions + Dynamic Background Swapping
+  const cards = document.querySelectorAll('.slide-card');
+  const track = document.getElementById('sliderTrack');
+  const ambientBg = document.getElementById('ambientBg');
+  const activeTitle = document.getElementById('active-title');
+  const activeTag = document.getElementById('active-tag');
+  const activeDesc = document.getElementById('active-desc');
+  const counter = document.getElementById('graphic-counter');
+
+  cards.forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      
+      const cardStyle = card.getAttribute('style');
+      const imgUrlMatch = cardStyle.match(/url\(['"]?([^'"]*)['"]?\)/);
+      if (imgUrlMatch && ambientBg) {
+        const newImgUrl = imgUrlMatch[1];
+        ambientBg.style.backgroundImage = `url('${newImgUrl}')`;
+      }
+      
+      activeTitle.textContent = card.getAttribute('data-title');
+      activeTag.textContent = card.getAttribute('data-tag');
+      activeDesc.textContent = card.getAttribute('data-desc');
+      counter.textContent = `0${idx + 1} — 05`;
+      
+      const shiftAmt = idx * -120; 
+      if(track) track.style.transform = `translateX(${shiftAmt}px)`;
+    });
+  });
+</script>
+</body>
+</html>
