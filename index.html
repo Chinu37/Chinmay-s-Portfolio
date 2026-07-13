@@ -635,30 +635,46 @@
   @media(max-width: 900px) {
     .contact-layout { grid-template-columns: 1fr; gap: 50px; }
   }
+
   /* ---------- MOBILE & TABLET FIXES ---------- */
   @media (max-width: 640px) {
-    /* 1. Fix the Graphic Design Slider stretching the screen */
+    /* 1. Add side scroll to the Graphic Design Slider */
     .slider-track {
-      padding-left: 0;
+      padding-left: 5vw; 
+      padding-right: 5vw;
       gap: 16px;
+      overflow-x: auto; 
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; 
+      transform: none !important; 
     }
-    .slide-card {
-      flex: 0 0 200px;
-      height: 300px;
-    }
-    .slide-card.active {
-      flex: 0 0 90vw; /* Makes the active card adapt to screen width instead of a fixed 380px */
-      height: 360px;
+    
+    .slider-track::-webkit-scrollbar {
+      display: none;
     }
 
-    /* 2. Shrink the floating corner animations so they don't cover text */
+    .slide-card, .slide-card.active {
+      flex: 0 0 85vw !important; 
+      height: 380px !important;
+      scroll-snap-align: center; 
+    }
+
+    /* 2. Fix overlapping Lotties by shrinking, dimming, and sending them behind text */
     .motion-corner-lottie,
     .graphics-corner-lottie,
     .about-corner-lottie {
-      width: 120px;
-      height: 120px;
-      right: 2%;
-      opacity: 0.6; /* Slight transparency so text remains readable underneath */
+      width: 90px;
+      height: 90px;
+      right: 0%;
+      top: 10px;
+      opacity: 0.25; /* Very subtle so text remains highly readable */
+      z-index: 1; 
+    }
+
+    /* Force text elements to sit above the animations */
+    .work-head, .slider-details, .about-layout {
+      position: relative;
+      z-index: 10;
     }
     
     /* 3. Ensure no media ever bleeds off the edge of the screen */
