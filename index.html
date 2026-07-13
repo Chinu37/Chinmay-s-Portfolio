@@ -635,6 +635,38 @@
   @media(max-width: 900px) {
     .contact-layout { grid-template-columns: 1fr; gap: 50px; }
   }
+  /* ---------- MOBILE & TABLET FIXES ---------- */
+  @media (max-width: 640px) {
+    /* 1. Fix the Graphic Design Slider stretching the screen */
+    .slider-track {
+      padding-left: 0;
+      gap: 16px;
+    }
+    .slide-card {
+      flex: 0 0 200px;
+      height: 300px;
+    }
+    .slide-card.active {
+      flex: 0 0 90vw; /* Makes the active card adapt to screen width instead of a fixed 380px */
+      height: 360px;
+    }
+
+    /* 2. Shrink the floating corner animations so they don't cover text */
+    .motion-corner-lottie,
+    .graphics-corner-lottie,
+    .about-corner-lottie {
+      width: 120px;
+      height: 120px;
+      right: 2%;
+      opacity: 0.6; /* Slight transparency so text remains readable underneath */
+    }
+    
+    /* 3. Ensure no media ever bleeds off the edge of the screen */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 </style>
 </head>
 <body>
